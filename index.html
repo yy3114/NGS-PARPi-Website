@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGS 與醫學會補助</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e3a5f;
+            text-align: center;
+            margin-bottom: 0.5rem; /* Reduced margin for multi-line title */
+        }
+        .section-subtitle {
+            font-size: 1.5rem; /* Smaller font size for subtitle */
+            font-weight: 500;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .description {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2.5rem;
+        }
+        .step-card {
+            background-color: #e2f2ff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #03a9f4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #03a9f4;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+        .step-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5282;
+            margin-bottom: 1rem;
+            padding-right: 3rem;
+        }
+        .step-content {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        .highlight {
+            color: #03a9f4;
+            font-weight: bold;
+        }
+        .callout {
+            background-color: #f0f9ff;
+            border-left: 4px solid #03a9f4;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .gov-button {
+            display: block;
+            margin: 2rem auto 1rem;
+            padding: 1rem 2rem;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 9999px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .gov-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        .society-button {
+            display: block;
+            margin: 1rem auto 2rem;
+            padding: 1rem 2rem;
+            background-color: #03a9f4;
+            color: white;
+            border-radius: 9999px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .society-button:hover {
+            background-color: #0288d1;
+            transform: translateY(-2px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-header {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .close-button {
+            color: #aaa;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .close-button:hover, .close-button:focus {
+            color: #1a202c;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">NGS與PARPi</h1>
+        <h2 class="section-subtitle">精準醫療新篇章</h2>
+        <p class="description">
+            次世代基因定序（NGS）如何幫助我們找出適合使用PARP抑制劑（如Lynparza）的患者，開啟個人化的癌症精準治療。
+        </p>
+
+        <!-- 步驟 1: NGS 檢測 -->
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-header">次世代基因定序 (NGS)</div>
+            <div class="step-content">
+                <p>NGS 是一種能夠快速、大量且精準地定序 DNA 的技術。它能在單次檢測中，同時分析數百個與癌症相關的基因，提供全面的基因資訊。</p>
+                <div class="callout">
+                    <strong>主要目的：</strong> 精準找出癌細胞的基因變異，尤其是與標靶治療相關的 <span class="highlight">BRCA1/2 基因突變</span>。
+                </div>
+            </div>
+            <button class="society-button" onclick="showModal('societyModal')">查看攝護腺癌 NGS 檢測方案</button>
+        </div>
+
+        <!-- 步驟 2: 發現 BRCA 基因突變 -->
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-header">BRCA 基因突變的發現</div>
+            <div class="step-content">
+                <p>BRCA1 與 BRCA2 是人體內的抑癌基因，主要功能是執行 DNA 的雙股斷裂修復。當這些基因發生突變，此修復路徑就會失效。NGS 檢測能幫助醫生識別出帶有此類基因缺陷的患者。</p>
+            </div>
+        </div>
+
+        <!-- 步驟 3: 認識 PARP 抑制劑 -->
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-header">PARP 抑制劑的作用機制</div>
+            <div class="step-content">
+                <p>癌細胞若帶有 BRCA 突變，會高度依賴另一種 DNA 修復機制，即由 PARP 酵素執行的單股斷裂修復。PARP 抑制劑能夠阻斷此路徑，使癌細胞同時失去兩種重要的 DNA 修復能力。</p>
+            </div>
+        </div>
+
+        <!-- 步驟 4: Lynparza 的精準打擊 -->
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-header">Lynparza (Olaparib) 的精準治療</div>
+            <div class="step-content">
+                <p>Lynparza 是第一個被核准的 PARP 抑制劑，其作用原理是「<span class="highlight">合成致死 (Synthetic Lethality)</span>」。當帶有 BRCA 突變的癌細胞面臨 Lynparza 的作用時，其 DNA 雙重損傷無法修復，最終走向死亡。而正常細胞因 BRCA 功能健全，可以繼續生存。</p>
+            </div>
+        </div>
+
+        <!-- 步驟 5: NGS 與 Lynparza 的完美結合 -->
+        <div class="step-card">
+            <div class="step-number">5</div>
+            <div class="step-header">精準醫療的實現</div>
+            <div class="step-content">
+                <p>NGS 檢測為 Lynparza 提供了精準的「導航」。它幫助醫師快速且準確地篩選出帶有 BRCA 突變的患者，讓這些最適合的患者能夠接受 Lynparza 治療，從而達到最高的療效。這兩項技術的結合，正是精準醫療時代的完美體現。</p>
+            </div>
+        </div>
+
+        <button class="gov-button" onclick="showModal('govModal')">查看政府 NGS 健保給付規定</button>
+    </div>
+
+    <!-- 健保給付彈出視窗 -->
+    <div id="govModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>政府 NGS 健保給付規定</span>
+                <span class="close-button" onclick="hideModal('govModal')">&times;</span>
+            </div>
+            <p class="text-sm text-gray-700">
+                目前，台灣健保署已針對特定癌症、特定基因變異的患者，將部分 NGS 基因檢測納入健保給付範圍，例如：<br><br>
+                1. <strong>非小細胞肺癌：</strong> 針對EGFR、ALK、ROS1、KRAS、BRAF、HER2等基因變異的檢測。<br>
+                2. <strong>大腸直腸癌：</strong> 針對KRAS、NRAS、BRAF基因變異的檢測。<br>
+                3. <strong>乳癌：</strong> 針對HER2基因變異的檢測。<br>
+                4. <strong>卵巢癌：</strong> 針對BRCA1/2基因變異的檢測。<br>
+                5. <strong>攝護腺癌：</strong> 針對BRCA1/2基因變異的檢測。<br><br>
+                健保給付的涵蓋範圍會隨著醫學發展持續更新，建議諮詢您的主治醫師或醫療院所，以了解最新的健保給付規定及個人化的檢測建議。
+            </p>
+        </div>
+    </div>
+
+    <!-- 醫學會補助彈出視窗 -->
+    <div id="societyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>攝護腺癌 NGS 檢測方案</span>
+                <span class="close-button" onclick="hideModal('societyModal')">&times;</span>
+            </div>
+            <div class="text-sm text-gray-700 space-y-4">
+                <p>攝護腺癌的次世代定序(NGS)基因檢測，可針對晚期患者的基因變異進行分析，協助醫師選擇更精準的標靶藥物進行治療。此技術提供多種方案：</p>
+                <h3 class="font-bold text-base text-gray-800 mt-4">健保給付與自費方案</h3>
+                <p>NGS檢測在攝護腺癌治療中的應用主要分為以下幾種：</p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>BRCA基因檢測：</strong>主要用於特定癌症（如攝護腺癌）的基因變異檢測，並有相對應的健保給付。</li>
+                    <li><strong>小套組檢測：</strong>檢測小於100個基因，覆蓋常見的基因變異，主要對應健保給付的藥物。</li>
+                    <li><strong>大套組檢測：</strong>檢測超過100個基因，提供更詳細的基因變異資訊，適用於抗藥性患者，也可能找到配對全球臨床試驗的藥物。</li>
+                </ul>
+                <h3 class="font-bold text-base text-gray-800 mt-4">檢測方式與費用</h3>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>檢測方式：</strong>最常見的檢體取得方式為<strong>抽血檢測</strong>，透過血液分析癌細胞相關的基因變異。</li>
+                    <li><strong>檢測費用：</strong>自費費用約為5萬至10萬元不等，視檢測基因的數量而定。健保給付方案則有固定點數，例如BRCA基因檢測支付1萬點、小套組2萬點，大套組3萬點。</li>
+                </ul>
+                <h3 class="font-bold text-base text-gray-800 mt-4">重要提示</h3>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>NGS檢測的臨床效益視癌別及個人病情而定，應與醫師討論後決定是否進行檢測。</li>
+                    <li>健保給付為終身一次，若癌友符合條件，可向醫師申請。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+        }
+
+        function hideModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const govModal = document.getElementById('govModal');
+            const societyModal = document.getElementById('societyModal');
+            if (event.target == govModal) {
+                govModal.style.display = 'none';
+            }
+            if (event.target == societyModal) {
+                societyModal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
